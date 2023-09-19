@@ -1,25 +1,29 @@
-const billAmount: HTMLInputElement | undefined =
+const billAmount: HTMLInputElement | null =
   document.querySelector("#bill-amount");
-const tipRate: HTMLInputElement | undefined =
+const tipRate: HTMLInputElement | null =
   document.querySelector("#tip-percentage");
-const calculateButton: HTMLButtonElement | undefined =
+const calculateButton: HTMLButtonElement | null =
   document.querySelector(".button");
-const total: HTMLDivElement | undefined = document.querySelector(".result");
+const total: HTMLDivElement | null = document.querySelector(".result");
 
 function CalculatorTotal(): void {
   if (
-    billAmount === undefined ||
-    tipRate === undefined ||
-    calculateButton === undefined ||
-    total === undefined
+    billAmount === null ||
+    tipRate === null ||
+    calculateButton === null ||
+    total === null
   ) {
     return;
   }
 
-  const billValue: number = billAmount.value;
-  const tipValue: number = tipRate.value;
+  const billValue: number = parseFloat(billAmount.value) || 0;
+  const tipValue: number = parseFloat(tipRate.value) || 0;
   const totalValue: number = billValue * (1 + tipValue / 100);
-  total.innerText = `$${totalValue.toFixed(2)}`;
+  if (total) {
+    total.innerText = `$${totalValue.toFixed(2)}`;
+  }
 }
 
-calculateButton?.addEventListener("click", CalculatorTotal);
+if (calculateButton) {
+  calculateButton.addEventListener("click", CalculatorTotal);
+}
