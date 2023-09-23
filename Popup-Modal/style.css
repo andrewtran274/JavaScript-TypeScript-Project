@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .btn {
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  letter-spacing: 2;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: rgb(79, 79, 253);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.wrapper .buttonShow.active {
+  display: none;
+  opacity: 0;
+}
+
+.wrapper .btn:hover {
+  opacity: 0.8;
+}
+
+.wrapper .ovelay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #d5d5d5;
+  z-index: 1;
+  transform: 0.3s;
+  cursor: pointer;
+}
+
+.wrapper .ovelay.active {
+  display: block;
+}
+
+.wrapper .popup-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%) scale(1.3);
+  height: min-content;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  flex-direction: column;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  /* display: none; */
+}
+
+.wrapper .popup-modal.active {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.wrapper .popup-modal .popup-icon {
+  font-size: 90px;
+  color: rgb(79, 79, 253);
+}
+
+.wrapper .popup-modal .status {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.wrapper .popup-modal .description {
+  opacity: 0.7;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.wrapper .popup-modal .group-popup-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.wrapper .popup-modal .group-popup-btn .btn {
+  font-size: 15px;
+  font-weight: 300;
+  padding: 10px 20px;
+}
