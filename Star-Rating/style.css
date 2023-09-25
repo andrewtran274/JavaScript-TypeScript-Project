@@ -63,13 +63,14 @@ body {
 }
 
 .point {
+  flex: 1;
   line-height: 50px;
   /* background-color: blue; */
   /* width: 50px; */
   font-size: 25px;
   color: rgb(234, 234, 47);
   /* margin-left: 20px; */
-  /* position: relative; */
+  position: relative;
 }
 
 .rating .line {
