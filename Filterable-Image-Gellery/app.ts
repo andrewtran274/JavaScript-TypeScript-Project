@@ -7,7 +7,7 @@ const cards = container.querySelectorAll(
 ) as NodeListOf<HTMLElement>;
 
 container.addEventListener("click", (e: MouseEvent) => {
-  if ((e.target as HTMLButtonElement).classList.contains("btn")) {
+  if ((<HTMLButtonElement>e.target).classList.contains("btn")) {
     const activeButton = container.querySelector(
       ".group-button .active"
     ) as HTMLButtonElement;
