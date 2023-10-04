@@ -1,30 +1,30 @@
-const buttonDowload = document.querySelector(".button");
+const downloadButton = document.querySelector(".button");
 
-const fileLink =
+const fileDownloadLink =
   "https://drive.google.com/uc?export=download&id=1aYiaLn3YOjL-_o5QBCy7tU1epqA6gZoi";
 
-buttonDowload.addEventListener("click", (e) => {
-  if (buttonDowload.classList.contains("active")) {
-    return (location.href = fileLink);
+downloadButton.addEventListener("click", (e) => {
+  if (downloadButton.classList.contains("active")) {
+    return (location.href = fileDownloadLink);
   }
-  let timer = buttonDowload.dataset.time;
+  let countdown = downloadButton.dataset.time;
 
-  buttonDowload.classList.add("hiddenButton");
-  buttonDowload.innerHTML = `<p>Your file will download in <span style="color:  rgb(63, 124, 254);">${timer}</span> seconds</p>`;
+  downloadButton.classList.add("hiddenButton");
+  downloadButton.innerHTML = `<p>Your file will download in <span style="color:  rgb(63, 124, 254);">${countdown}</span> seconds</p>`;
 
   const intervalID = setInterval(() => {
-    if (timer > 0) {
-      timer--;
-      return (buttonDowload.innerHTML = `<p>Your file will dowload in <span style="color:  rgb(63, 124, 254);">${timer}</span> seconds</p>`);
+    if (countdown > 0) {
+      countdown--;
+      return (downloadButton.innerHTML = `<p>Your file will dowload in <span style="color:  rgb(63, 124, 254);">${countdown}</span> seconds</p>`);
     }
     clearInterval(intervalID);
 
-    buttonDowload.innerHTML = `<p>Your file is downloading...</p>`;
-    location.href = fileLink;
+    downloadButton.innerHTML = `<p>Your file is downloading...</p>`;
+    location.href = fileDownloadLink;
     setTimeout(() => {
-      buttonDowload.classList.remove("hiddenButton");
-      buttonDowload.classList.add("active");
-      buttonDowload.innerHTML = `
+      downloadButton.classList.remove("hiddenButton");
+      downloadButton.classList.add("active");
+      downloadButton.innerHTML = `
                                 <ion-icon name="cloud-download-outline"></ion-icon>
                                 <span class="text">Download Again</span>
                                 `;
