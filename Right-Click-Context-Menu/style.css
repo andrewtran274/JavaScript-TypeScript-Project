@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+
+  background-color: #0071d3;
+}
+
+.customContextMenu {
+  position: fixed;
+  visibility: hidden;
+  width: 280px;
+  background-color: #fff;
+  padding: 10px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.customContextMenu .item {
+  display: flex;
+  align-items: center;
+  padding: 14px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customContextMenu .item.active {
+  position: relative;
+}
+
+.customContextMenu .item.active .arrow {
+  position: absolute;
+  right: 0;
+}
+
+.line {
+  position: relative;
+  width: 280px;
+  height: 2px;
+  background-color: #cccccc;
+  margin: 10px 0;
+  transform: translateX(-10px);
+}
+
+.customContextMenu .item:hover {
+  background-color: #cccccc;
+}
+
+.customContextMenu .item ion-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.customContextMenu .item.active:hover .submenu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.listItem .submenu {
+  background-color: #fff;
+  position: absolute;
+  right: -200px;
+  top: -40px;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
