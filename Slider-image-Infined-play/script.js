@@ -1,4 +1,3 @@
-//Cách 1
 const buttons = document.querySelectorAll(".group-button i");
 const slider = document.querySelector(".slider");
 
