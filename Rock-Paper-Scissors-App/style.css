@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #006ab6;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 500px;
+  height: min-content;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ui-game {
+  display: flex;
+  gap: 70px;
+}
+
+.ui-game i {
+  font-size: 150px;
+  color: #003988;
+}
+
+.ui-game .user-img {
+  transform: rotate(90deg);
+}
+
+.ui-game .cpu-img {
+  transform: rotate(-90deg) rotateY(-180deg);
+}
+
+.result {
+  font-size: 50px;
+  font-weight: 500;
+  margin-top: 20px;
+  color: rgb(255, 74, 74);
+  pointer-events: none;
+}
+
+.control-game {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.control-game .item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  opacity: 0.5;
+  transition: all 0.4s;
+}
+
+.control-game .item:hover {
+  opacity: 1;
+}
+
+.control-game .item .title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.control-game i {
+  font-size: 80px;
+  color: #006ab6;
+}
+
+.control-game .scissor i {
+  transform: rotate(90deg);
+}
+
+.control-game .item.active {
+  opacity: 1;
+}
