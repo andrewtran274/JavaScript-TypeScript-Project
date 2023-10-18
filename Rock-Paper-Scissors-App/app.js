@@ -1,36 +1,52 @@
-const containerGame = document.querySelector(".container");
-const cpuGame = document.querySelector(".container .cpu-img");
-const userGame = document.querySelector(".container .user-img");
-const result = document.querySelector(".container .result");
-const controlGame = document.querySelectorAll(".container .control-game .item");
+const container = document.querySelector(".container");
+const cpuImage = document.querySelector(".container .cpu-img");
+const userImage = document.querySelector(".container .user-img");
+const resultDisplay = document.querySelector(".container .result");
+const controlButtons = document.querySelectorAll(
+  ".container .control-game .item"
+);
+const iconClasses = [
+  "fa-regular fa-hand-back-fist",
+  "fa-regular fa-hand",
+  "fa-regular fa-hand-scissors",
+];
+const gameOptions = ["R", "P", "S"];
+const winnerState = {
+  RP: "CPU",
+  PR: "User",
+  RS: "User",
+  SR: "User",
+  PS: "CPU",
+  SP: "User",
+};
 
-controlGame.forEach((button, index) => {
-  button.addEventListener("click", (e) => {
-    controlGame.forEach((element) => {
-      element.classList.remove("active");
-    });
+controlButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    controlButtons.forEach((element) => element.classList.remove("active"));
     button.classList.add("active");
 
-    const arrayClassImg = [
-      "fa-regular fa-hand-back-fist",
-      "fa-regular fa-hand",
-      "fa-regular fa-hand-scissors",
-    ];
-    const arrayGame = ["R", "P", "S"];
-    const radomNumber = Math.floor(Math.random() * 3);
+    container.classList.add("active");
+    cpuImage.querySelector("i").setAttribute("class", iconClasses[0]);
+    userImage.querySelector("i").setAttribute("class", iconClasses[0]);
+    resultDisplay.textContent = "Wait...";
 
-    let classImg = button.querySelector("i").getAttribute("class");
+    const randomNumber = Math.floor(Math.random() * 3);
+    const userChoice = button.querySelector("i").getAttribute("class");
 
-    userGame.querySelector("i").setAttribute("class", classImg);
-    cpuGame
-      .querySelector("i")
-      .setAttribute("class", arrayClassImg[radomNumber]);
+    setTimeout(() => {
+      container.classList.remove("active");
+      userImage.querySelector("i").setAttribute("class", userChoice);
+      cpuImage
+        .querySelector("i")
+        .setAttribute("class", iconClasses[randomNumber]);
 
-    let cpuValue = arrayGame[radomNumber];
-    let userValue = arrayGame[index];
+      const cpuValue = gameOptions[randomNumber];
+      const userValue = gameOptions[index];
 
-    
-
-    console.log(cpuValue, userValue);
+      resultDisplay.textContent =
+        cpuValue === userValue
+          ? "Match Draw"
+          : `${winnerState[userValue + cpuValue]} Won!!!`;
+    }, 2500);
   });
 });

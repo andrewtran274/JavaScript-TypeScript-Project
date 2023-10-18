@@ -27,6 +27,32 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.container.active .ui-game .cpu-img {
+  transform-origin: right;
+  animation: CpushakingEffect 1.5s infinite;
+}
+
+.container.active {
+  pointer-events: none;
+}
+
+@keyframes CpushakingEffect {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.container.active .ui-game .user-img {
+  transform-origin: left;
+  animation: UsershakingEffect 1.5s ease infinite;
+}
+
+@keyframes UsershakingEffect {
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
 .ui-game {
   display: flex;
   gap: 70px;
@@ -37,11 +63,11 @@ body {
   color: #003988;
 }
 
-.ui-game .user-img {
+.ui-game .user-img i {
   transform: rotate(90deg);
 }
 
-.ui-game .cpu-img {
+.ui-game .cpu-img i {
   transform: rotate(-90deg) rotateY(-180deg);
 }
 
